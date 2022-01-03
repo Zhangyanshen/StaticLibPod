@@ -1,0 +1,33 @@
+---
+installation_method:
+  name: cocoapods
+  options:
+    :deterministic_uuids: false
+    :generate_multiple_pod_projects: false
+    :incremental_installation: false
+    :share_schemes_for_development_pods: true
+    :warn_for_multiple_pod_sources: false
+workspace: StaticLibPod.xcworkspace
+sources:
+  - https://cdn.cocoapods.org/
+plugins:
+  cocoapods-disable-podfile-validations:
+    no_abstract_only_pods: true
+  cocoapods-generate:
+    {}
+target_definitions:
+  - abstract: true
+    children:
+      - abstract: true
+        name: Transitive Dependencies
+      - name: App-iOS
+    dependencies:
+      - StaticLibPod:
+        - :path: "../StaticLibPod.podspec"
+    name: Pods
+    use_modular_headers:
+      all: true
+    user_project_path: StaticLibPod.xcodeproj
+    uses_frameworks:
+      :linkage: :static
+      :packaging: :library

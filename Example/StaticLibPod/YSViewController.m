@@ -7,6 +7,16 @@
 //
 
 #import "YSViewController.h"
+//@import StaticLibPod;
+//#import <StaticLibPod/StaticLib.h>
+#import "YSTool.h"
+#import "YSSubspec1Tool.h"
+#import <StaticLibPod/YSTool.h>
+#import <StaticLibPod/YSSubspec1Tool.h>
+//#import <StaticLibPod/YSStaticFwkPerson.h>
+//#import "YSStudent.h"
+
+//const NSString *kURLErrorMsg = @"fdfdfdfd";
 
 @interface YSViewController ()
 
@@ -17,7 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [YSTool test];
+    [YSSubspec1Tool class];
+//    [YSStudent test];
+    
 }
 
 - (void)didReceiveMemoryWarning

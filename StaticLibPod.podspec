@@ -1,42 +1,49 @@
-#
-# Be sure to run `pod lib lint StaticLibPod.podspec' to ensure this is a
-# valid spec before submitting.
-#
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
-#
 
 Pod::Spec.new do |s|
   s.name             = 'StaticLibPod'
-  s.version          = '0.1.0'
+  s.version          = '0.1.13'
   s.summary          = 'A short description of StaticLibPod.'
-
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
                        DESC
 
   s.homepage         = 'https://github.com/Jensen/StaticLibPod'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Jensen' => 'zys2@meitu.com' }
   s.source           = { :git => 'https://github.com/Jensen/StaticLibPod.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
+#  s.module_name = 'staticlib'
 
-  s.source_files = 'StaticLibPod/Classes/**/*'
+  s.source_files = ['StaticLibPod/Classes/*.{h,m}', 'StaticLibPod/libs/**/*.h']
+  s.project_header_files = 'StaticLibPod/Classes/Subspec2/YSSubspec2Tool2.h'
+  s.vendored_libraries = 'StaticLibPod/libs/**/*.a'
   
-  # s.resource_bundles = {
-  #   'StaticLibPod' => ['StaticLibPod/Assets/*.png']
-  # }
+  s.subspec 'Subspec1' do |ss|
+    ss.source_files = 'StaticLibPod/Classes/Subspec1/**/*.{h,m}'
+    ss.vendored_frameworks = 'StaticLibPod/fwks/StaticFramework.framework', 'StaticLibPod/fwks/MTGSDK.xcframework'
+    ss.resource = 'StaticLibPod/Classes/Subspec1/s1.bundle'
+  end
+  
+  s.subspec 'Subspec2' do |ss|
+    ss.source_files = 'StaticLibPod/Classes/Subspec2/**/*.{h,m}'
+    ss.private_header_files = 'StaticLibPod/Classes/Subspec2/YSSubspec2Tool1.h'
+    ss.project_header_files = 'StaticLibPod/Classes/Subspec2/YSSubspec2Tool2.h'
+    ss.vendored_frameworks = 'StaticLibPod/fwks/DynamicFramework.framework'
+    ss.resource_bundles = {
+      'StaticLibPodS2' => ['StaticLibPod/Classes/Subspec2/imgs/*.png']
+    }
+  end
+  
+#  s.pod_target_xcconfig = { 'OTHER_LDFLAGS' => '-lObjC' }
+  
+   s.resource_bundles = {
+     'StaticLibPod' => ['StaticLibPod/Assets/*.png']
+   }
+   s.resources = 'StaticLibPod/*.json'
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+   s.static_framework = true
+   
+   # s.dependency 'Zys2PodBBBBB'
 end

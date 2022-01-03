@@ -1,9 +1,23 @@
-use_frameworks!
+source 'https://cdn.cocoapods.org/'
+source 'http://techgit.meitu.com/iosmodules/specs.git'
+source 'http://techgit.meitu.com/iosmodules_public/specs.git'
+source 'http://techgit.meitu.com/flymedia/FlyMediaSpecs.git'
+source 'http://repo.baichuan-ios.taobao.com/baichuanSDK/AliBCSpecs.git'
+source 'http://techgit.meitu.com/iosmodules/mtxxspecs.git'
 
-platform :ios, '9.0'
+#use_frameworks!
+#use_modular_headers!
+
+platform :ios, '11.0'
 
 target 'StaticLibPod_Example' do
   pod 'StaticLibPod', :path => '../'
+#  pod 'MTADSDK', :git => 'http://techgit.meitu.com/iOSMTECSDK/MTADSDK.git', :commit => '123ebd2'#:branch => 'dev/2.11.0'
+#  pod 'MTCPBaseSDK', :git => 'http://techgit.meitu.com/iOSMTECSDK/MTCPBaseSDK.git', :commit => '179e17c'#:branch => 'dev/1.3.6'
+#  pod 'MTCPUISDK', :git => 'http://techgit.meitu.com/iOSMTECSDK/MTCPUISDK.git', :commit => '7a98961'#:branch => 'dev/1.5.5'
+#  pod 'MTECSDK', :git => 'http://techgit.meitu.com/iOSMTECSDK/MTECSDK.git', :tag => '2.0.2'
+#  pod 'MTBusinessKit', :git => 'http://techgit.meitu.com/iOSMTECSDK/MTBusinessKit-iOS.git', :commit => '85ebe6f5'
+#  pod 'MTBusinessKit', :git => 'http://techgit.meitu.com/iOSMTECSDK/MTBusinessKit-iOS.git', :commit => '85ebe6f5', :subspecs => ['Core', 'Admob', 'GDT','Toutiao', 'Adiva']#:branch => 'dev/5.7.0'
 
   target 'StaticLibPod_Tests' do
     inherit! :search_paths

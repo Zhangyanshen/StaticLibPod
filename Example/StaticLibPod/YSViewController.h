@@ -8,6 +8,8 @@
 
 @import UIKit;
 
+//extern NSString *kURLErrorMsg;
+
 @interface YSViewController : UIViewController
 
 @end

@@ -1,0 +1,20 @@
+PODS:
+  - StaticLibPod (0.1.11):
+    - StaticLibPod/Subspec1 (= 0.1.11)
+    - StaticLibPod/Subspec2 (= 0.1.11)
+  - StaticLibPod/Subspec1 (0.1.11)
+  - StaticLibPod/Subspec2 (0.1.11)
+
+DEPENDENCIES:
+  - StaticLibPod (from `../`)
+
+EXTERNAL SOURCES:
+  StaticLibPod:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  StaticLibPod: 997d53cb7d72bc7a8b58cb0416c67ffce674c493
+
+PODFILE CHECKSUM: 87e50a9982cb70bf7796464b2d26c557e852a5dd
+
+COCOAPODS: 1.11.2
